@@ -93,7 +93,7 @@ var score = 80; // 변수 선언과 값의 할당
 
 console.log(score); // 80
 ```
-
+    
 - 위의 두 코드는 동일하게 동작한다.
 
 ```js
@@ -121,18 +121,55 @@ score = 90; // 값의 재할당
 > 애플리케이션이 할당한 메모리 공간을 주기적으로 검사하여 더 이상 사용되지 않는 메모리를 해제 하는 기능을 말한다.
 - 위의 예제에서 `score`의 이전 값인 `undefined`와 `80`은 더 이상 필요하지 않기에 가비지 콜렉터에 의해 메모리에서 자동 해제된다.
 
-
-
-
-
+## 💕 식별자 네이밍 규칙
+> 식별자는 어떤 값을 구별해서 식별해낼 수 있는 고유한 이름을 말한다.
+- 식별자는 다음과 같은 네이밍 규칙을 준수해야 한다.
+  - 식별자는 특수문자를 제외한 문자, 숫자, 언더스코어(_), 달러 기호($)를 포함할 수 있다.
+  - 단, 식별자는 특수문자를 제외한 문자, 언더스코어(_), 달러 기호($)로 시작해야 한다. 숫자로 시작하는 것은 허용하지 않는다.
+  - 예약어는 식별자로 사용할 수 없다.
+- 사용할 수 있는 변수 이름
 ```js
-
+var person, $elem, _name, first_name, val1
 ```
-
+- 사용할 수 있지만 알파벳 외의 문자를 사용하는 것은 바람직하지 않다.
 ```js
-
+var 이름, なまえ
 ```
-
+- 명명 규칙에 위배되는 식별자
 ```js
-
+var first-name; // (-) 사용
+var 1st; // 첫 글자가 숫자
+var this; // 예약어 사용
 ```
+- 자바스크립트는 대소문자를 구분하므로 다음 변수는 각각 별개의 변수
+```js
+var firstname;
+var firstName;
+var FIRSTNAME;
+```
+- 변수 이름은 의미를 알 수 있도록 명확하게 표현해야 한다.
+```js
+var x = 3; // 의미를 알 수 없다.
+var score = 100; // 변수는 점수를 의미한다.
+
+var d; // d가 무엇인지 설명하는 주석이 필요하다면 NG
+var elapsedTimeInDays; // OK
+```
+- 네이밍 컨벤션은 하나 이상의 영어 단어로 구성된 식별자를 만들 때 가독성 좋게 단어를 한눈에 구분하기 위해 규정한 명명 규칙이다.
+```js
+// 카멜 케이스(camelCase)
+var firstName;
+
+// 스네이크 케이스(snake_case)
+var first_name;
+
+// 파스칼 케이스(PascalCase)
+var FirstName;
+
+// 헝가리언 케이스(typeHungarianCase)
+var strFirstName; // type + identifier
+var $elem = document.getElementById('myId'); // DOM 노드
+var observable$ = fromEvent(document, 'click'); // RxJS 옵저버블
+```
+- 자바스크립트에선 일반적으로 변수나 함수의 이름에는 카멜 케이스를 사용한다.
+- 생성자 함수, 클래스의 이름에는 파스칼 케이스를 사용한다.
